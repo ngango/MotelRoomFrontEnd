@@ -16,6 +16,16 @@ import { ConnectedRouter } from 'connected-react-router';
 import FontFaceObserver from 'fontfaceobserver';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
+import 'plugins/fontawesome-free/css/all.min.css';
+import 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css';
+import 'plugins/icheck-bootstrap/icheck-bootstrap.min.css';
+import 'plugins/jqvmap/jqvmap.min.css';
+import 'dist/css/adminlte.min.css';
+import 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css';
+import  'plugins/daterangepicker/daterangepicker.css';
+import 'plugins/summernote/summernote-bs4.css';
+import 'plugins/customer.css';
+
 
 // Import root app
 import App from 'containers/App';

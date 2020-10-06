@@ -13,7 +13,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
-import FontFaceObserver from 'fontfaceobserver';
+
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
 import 'plugins/fontawesome-free/css/all.min.css';
@@ -25,6 +25,16 @@ import 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css';
 import  'plugins/daterangepicker/daterangepicker.css';
 import 'plugins/summernote/summernote-bs4.css';
 import 'plugins/customer.css';
+import 'plugins/fontawesome-free/css/all.min.css';
+import 'plugins/datatables-bs4/css/dataTables.bootstrap4.min.css';
+import 'plugins/datatables-responsive/css/responsive.bootstrap4.min.css';
+import 'dist/css/adminlte.min.css';
+import 'loader.js'
+import 'plugins/bootstrap/js/bootstrap.bundle.min.js';
+import 'plugins/datatables/jquery.dataTables.min.js';
+import 'dist/js/adminlte.js';
+import 'dist/js/demo.js';
+
 
 
 // Import root app
@@ -44,12 +54,9 @@ import { translationMessages } from './i18n';
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
-const openSansObserver = new FontFaceObserver('Open Sans', {});
+
 
 // When Open Sans is loaded, add a font-family using Open Sans to the body
-openSansObserver.load().then(() => {
-  document.body.classList.add('fontLoaded');
-});
 
 // Create redux store with history
 const initialState = {};

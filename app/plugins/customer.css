@@ -1,3 +1,6 @@
 .sidebar, .user-panel{
     overflow-y: initial;
 }
+.content-wrapper{
+    min-height: 521px !important;
+}

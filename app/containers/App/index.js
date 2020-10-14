@@ -15,8 +15,8 @@ import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import ListMotelRoom from 'containers/ListMotelRoom/Loadable';
-import Header from 'components/Header';
 import Footer from 'components/Footer';
+import { createStructuredSelector } from 'reselect';
 
 import GlobalStyle from '../../global-styles';
 
@@ -218,7 +218,6 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/features" component={FeaturePage} />
-        <Route path="" component={NotFoundPage} />
         <Route path="/listMotelRoom" component={ListMotelRoom} />
       </Switch>
       <Footer />
@@ -236,3 +235,7 @@ export default function App() {
     </div>
   );
 }
+
+const mapStateToProps = createStructuredSelector({
+  
+})

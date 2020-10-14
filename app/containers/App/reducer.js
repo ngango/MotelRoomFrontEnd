@@ -8,7 +8,7 @@
  */
 
 import produce from 'immer';
-import { LOAD_REPOS_SUCCESS, LOAD_REPOS, LOAD_REPOS_ERROR, LOAD_LIST_MOTEL_ROOM } from './constants';
+import { LOAD_REPOS_SUCCESS, LOAD_REPOS, LOAD_REPOS_ERROR, LOAD_LIST_MOTEL_ROOM, LOAD_MOTEL_ROOM } from './constants';
 
 // The initial state of the App
 export const initialState = {
@@ -43,10 +43,16 @@ const appReducer = (state = initialState, action) =>
         break;
 
       case LOAD_LIST_MOTEL_ROOM: {
-        draft.listMotelRoom = action.listMotelRoom;
+        draft.listMotelRoom = [...state.listMotelRoom];
+        break;
+      }
+
+      case LOAD_MOTEL_ROOM:{ 
+          draft.listMotelRoom = [...action.repos];
+        }  
         break;
       }
     }
-  });
+  );
 
 export default appReducer;

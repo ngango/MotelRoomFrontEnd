@@ -8,69 +8,46 @@ import { connect } from 'react-redux';
 import { makeListMotelRoom } from  'containers/App/selectors';
 import saga from './saga';
 import { useInjectSaga } from 'utils/injectSaga';
+import Table from 'components/Table';
+import reducer from '../App/reducer';
+import { useInjectReducer } from 'utils/injectReducer';
 import { repoLoadListMotelRoom } from '../App/actions';
-
 
 const key = 'listMotelRoom';
 
 export  function ListMotelRoom({
-  listMotelRoom
+  listMotelRoom,
+  onSubmit
 }
 ){
+  console.log(listMotelRoom);
+  console.log("index");
+  useInjectReducer({ key, reducer });
   useInjectSaga({key, saga});
+  
     return(
-      <Router history={hashHistory}>
         <section className="content">
         <div className="row">
         <div className="col-12">
         <div className="card">
         <div className="card-header">
        <div className="col-2">
-       <NavLink type="button" className="btn btn-block btn-primary"to="/createMotelRoom">Create</NavLink>
+       <button type="submit" onClick= { onSubmit } className="btn btn-block btn-primary"to="/createMotelRoom">Create</button>
        </div>
         </div>
         <div className="card-body">
-        <table id="example2" className="table table-bordered table-hover">
-          <thead>
-          <tr>
-            <th>Rendering engine</th>
-            <th>Browser</th>
-            <th>Platform(s)</th>
-            <th>Engine version</th>
-            <th>CSS grade</th>
-            <th></th>
-          </tr>
-          </thead>
-          <tbody>
-            { listMotelRoom.array.forEach(element => {
-              <tr>
-              <td>Trident</td>
-              <td>Internet
-                Explorer 4.0
-              </td>
-              <td>Win 95+</td>
-              <td> 4</td>
-              <td>X</td>
-              <td><button type="button" className="btn btn-block btn-primary">Edit</button><button type="button" className="btn btn-block btn-danger">Delete</button></td>
-            </tr>
-            })}
-          
-          </tbody>
-        </table>
+          <Table listMotelRoom = {listMotelRoom} />
       </div>
     </div>
     </div>
     </div>
-     <Switch>
-     <Route path="/createMotelRoom" component={CreateMotelRoom} />
-     </Switch>
     </section>
-    </Router>
     );
 }
 
 ListMotelRoom.propTypes = {
-  listMotelRoom: PropTypes.array
+  listMotelRoom: PropTypes.array,
+  onSubmit: PropTypes.func,
 }
 
 const mapStateToProps = createStructuredSelector({
@@ -78,9 +55,12 @@ const mapStateToProps = createStructuredSelector({
 })
 
 export function mapDispatchToProps(dispatch){
-  return {
-    
-  };
+return{
+  onSubmit: evt => {
+    if (evt !== undefined && evt.preventDefault) evt.preventDefault();
+    dispatch(repoLoadListMotelRoom());
+  },
+}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListMotelRoom);

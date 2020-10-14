@@ -15,7 +15,7 @@
  *    }
  */
 
-import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR, LOAD_LIST_MOTEL_ROOM } from './constants';
+import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR, LOAD_LIST_MOTEL_ROOM, LOAD_MOTEL_ROOM } from './constants';
 
 /**
  * Load the repositories, this action starts the request saga
@@ -62,4 +62,11 @@ export function repoLoadListMotelRoom(){
   return { 
     type: LOAD_LIST_MOTEL_ROOM,
    } 
+}
+
+export function repoLoadListSuccess(repos){
+  return{
+    type: LOAD_MOTEL_ROOM,
+    repos,
+  };  
 }
